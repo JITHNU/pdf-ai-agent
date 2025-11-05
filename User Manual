@@ -1,0 +1,12 @@
+1.First Creste Virtual Environment - python3.11 -m venv venv , source venv/bin/activate
+
+2.Go to the backend folder
+
+3.Then install requirments - pip install -r requirements.txt
+
+4. Install pip install wikipedia / pip install PyPDF2
+
+5. Run Unicorn Application - uvicorn app.main:app --reload
+
+6. Then Run frontend - npm run dev
+
