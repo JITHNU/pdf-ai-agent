@@ -3,37 +3,34 @@ from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import StateGraph, END
-from langgraph.pregel import Pregel
-
 
 class AgentState(TypedDict):
     messages: List[HumanMessage]
 
-# Set API key
-os.environ["GOOGLE_API_KEY"] = "YOUR_API_KEY_HERE"
+os.environ["GOOGLE_API_KEY"] = "AIzaSyCzApWZcifrgPNludXSws-E71bG7TpvRgw"
 
-# Initialize model
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.0-flash",
     temperature=0
 )
 
-# Define the model node
 def Chatbot(state: AgentState) -> AgentState:
     response = llm.invoke(state["messages"])
     print(f"\nJithBot: {response.content}")
+    # Append the AI’s message back into the state
+    state["messages"].append(AIMessage(content=response.content))
     return state
 
-# Use `state_key` to annotate the main state, avoids __start__ errors
-workflow = StateGraph(AgentState, state_key="messages")
+workflow = StateGraph(AgentState)
 
 workflow.add_node("Chatbot", Chatbot)
-workflow.set_entry_point("Chatbot")  # Entry point replaces START edge
-workflow.add_edge("Chatbot", END)    # End edge
+workflow.set_entry_point("Chatbot")
+workflow.add_edge("Chatbot", END)
 
-print("🤖 JithBot is online! Type 'exit' to quit.")
+app = workflow.compile()
 
-# Conversation history
+print("🤖 JithBot is online! Type 'exit' to quit.\n")
+
 history = [
     SystemMessage(content=(
         "You are JithBot, a friendly AI assistant. "
@@ -50,9 +47,4 @@ while True:
         break
 
     history.append(HumanMessage(content=user_input))
-    result = workflow.invoke({"messages": history})
-    
-    # Get the latest AI response
-    ai_message = result["messages"][-1].content
-    print(f"\n")
-    history.append(AIMessage(content=ai_message))
+    result = app.invoke({"messages": history}) 
