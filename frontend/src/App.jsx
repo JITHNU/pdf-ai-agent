@@ -34,7 +34,9 @@ export default function App() {
     setError("");
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/chat", {
+      const BACKEND_URL = "https://pdf-ai-agent.vercel.app";
+      
+      const res = await fetch(`${BACKEND_URL}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query, session_id: activeChat }),
@@ -100,7 +102,7 @@ export default function App() {
     formData.append("session_id", activeChat);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/upload_pdf", {
+      const res = await fetch(`${BACKEND_URL}/upload_pdf`, {
         method: "POST",
         body: formData,
       });
