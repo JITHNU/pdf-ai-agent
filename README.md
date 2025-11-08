@@ -12,4 +12,5 @@ Multi-agent orchestration with LangGraph & dispatcher routing
 Web interface with React & session-based chat history
 
 Retrieval-Augmented Generation for accurate context-aware answers
+
 <img width="1349" height="587" alt="Screenshot 2025-11-05 at 23 41 46" src="https://github.com/user-attachments/assets/fe19bdc8-c2af-4ae2-9669-f613c33268fa" />
