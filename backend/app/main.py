@@ -12,6 +12,9 @@ import wikipedia
 from typing import TypedDict, List, Optional, Dict, Any
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from mangum import Mangum
+
+handler = Mangum(app)
 
 # Additional document parsing libraries
 # Ensure these are installed in your environment: python-docx, python-pptx, pandas, openpyxl
