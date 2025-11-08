@@ -7,3 +7,4 @@ google-genai
 numpy
 pydantic
 python-dotenv
+mangum
