@@ -8,3 +8,14 @@ numpy
 pydantic
 python-dotenv
 mangum
+pdfplumber
+langchain
+langgraph
+sklearn
+pandas
+mangum
+python-docx
+python-pptx
+openpyxl
+requests
+wikipedia
