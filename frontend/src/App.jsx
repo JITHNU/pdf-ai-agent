@@ -34,7 +34,7 @@ export default function App() {
     setError("");
 
     try {
-      const BACKEND_URL = "https://pdf-ai-agent.vercel.app";
+      const BACKEND_URL = "https://pdf-ai-agent-oguzbgulo-jithnuka-weerasinghes-projects.vercel.app";
       
       const res = await fetch(`${BACKEND_URL}/chat`, {
         method: "POST",
