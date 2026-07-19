@@ -1,4 +1,4 @@
-# PDF AI Agent
+# AstraDocs AI - PDF Integrated AI Agent
 
 An intelligent PDF chat workspace with a polished, enterprise-style interface for document Q&A, conversation history, and PDF upload handling.
 
