@@ -1,16 +1,42 @@
-# JithBot AI Agent
-# Developed an AI-powered assistant that can read, analyze, and answer questions from PDFs, Word, PowerPoint, and Excel files. Implemented a RAG (Retrieval-Augmented Generation) system using TF-IDF for document retrieval, integrated Google Gemini-2 AI via LangChain, and orchestrated multi-agent workflows using LangGraph. Built with FastAPI backend and React frontend for an interactive chat experience. Perfect for querying resumes, reports, or any document in natural language.
+# PDF AI Agent
 
-Key Highlights:
+An intelligent PDF chat workspace with a polished, enterprise-style interface for document Q&A, conversation history, and PDF upload handling.
 
-Multi-format document ingestion & parsing (PDF, DOCX, PPTX, CSV, XLSX)
+The frontend has been refreshed to feel closer to modern AI products: a layered chat shell, premium glassmorphism panels, stronger hierarchy, better empty states, and a more focused composer area.
 
-AI-powered document Q&A via PDFRAGAgent
+## Highlights
 
-Multi-agent orchestration with LangGraph & dispatcher routing
+- PDF upload and document-grounded chat flow
+- Persistent conversation history in local storage
+- Premium UI with a sidebar workspace, status cards, and richer message presentation
+- Responsive layout that works on desktop and mobile
+- Link-aware assistant responses
 
-Web interface with React & session-based chat history
+## Project Structure
 
-Retrieval-Augmented Generation for accurate context-aware answers
+- `backend/` FastAPI service for chat and PDF upload endpoints
+- `frontend/` Vite + React client with the redesigned chat experience
 
-<img width="1349" height="587" alt="Screenshot 2025-11-05 at 23 41 46" src="https://github.com/user-attachments/assets/fe19bdc8-c2af-4ae2-9669-f613c33268fa" />
+## Run Locally
+
+Start the backend API first, then the frontend app.
+
+### Backend
+
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+## UX Notes
+
+The current UI emphasizes a premium knowledge-work feel with visual depth, calmer spacing, and clearer document context. If you want, the next step can be a more branded theme direction such as “Claude-like minimal”, “Gemini-like vibrant”, or “ChatGPT-like compact”.
